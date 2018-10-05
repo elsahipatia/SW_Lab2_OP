@@ -13,4 +13,6 @@ nav span             				{ margin: 0px 10px 0px 0px;
 						width: 100%;
 						display: inline-block;}
 
+.response {width: 500px}
+
 #ErrorMsgs          		 { color: #f61; font-size: smaler}
