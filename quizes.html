@@ -29,15 +29,13 @@
     <section class="main" id="s1">
     
 	<div>
-		<form>
-			<!--<table>
+		<form  id='question' name='question' onsubmit="return validateForm()" action="’prueba.php’" >
+			<table>
 				<tr>
-					<td align="left">Email*</td>
-					<td align="left"> <input id="email" type="text"></td>
+					<td align="left">Email*<input id="email" type="text"></td>
 				</tr>
 				<tr>
-					<td align="left">Respuesta correcta* </td>
-					<td align="left"><input id="correct" type="text" class="response"></td>
+					<td align="left">Respuesta correcta* <input id="correct" type="text" class="response"></td>
 				</tr>
 				<tr>
 					<td align="left">Respuesta incorrecta* <input id="incorrect1" type="text" class="response"></td>
@@ -57,16 +55,29 @@
 				<tr>
 					<td align="left">Tema (subject)* <input id="subject" type="text"></td>
 				</tr>
-			</table>-->
-		<fieldset>
+                <tr>
+                    <td align="left"><button id="examine" >Examinar...</button> No se ha seleccionado ningún archivo </td>
+                </tr>
+                <tr>
+                    <td align="left"><button id="send" type="submit">Enviar solicitud</button> </td>
+                </tr>
+			</table>
+			<fieldset>
 
-		</fieldset>
-
-
+			</fieldset>
 		</form>
 	</div>
     </section>
-	<footer class='main' id='f1'>
+	  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	  <script>
+          import regexp from 'formvalidation/validators/regexp';
+		  function validateForm(){
+              var re = new RegExp("\\w+");
+              re.validate()
+          }
+	  </script>-->
+
+	  <footer class='main' id='f1'>
 		<a href='https://github.com'>Link GITHUB</a>
 	</footer>
 </div>
