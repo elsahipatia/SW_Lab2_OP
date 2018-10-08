@@ -29,31 +29,32 @@
     <section class="main" id="s1">
     
 	<div>
-		<form  id='question' name='question' onsubmit="return validateForm()" action="’prueba.php’" >
+		<form  id='questionForm' name='questionForm' onsubmit="validateForm()" action="prueba.php" >
 			<table>
 				<tr>
 					<td align="left">Email*<input id="email" type="text"></td>
 				</tr>
 				<tr>
-					<td align="left">Respuesta correcta* <input id="correct" type="text" class="response"></td>
+					<td align="left">Enunciado de la pregunta*: <input id="question" type="text" class="response"></td>
 				</tr>
 				<tr>
-					<td align="left">Respuesta incorrecta* <input id="incorrect1" type="text" class="response"></td>
+					<td align="left">Respuesta correcta*: <input id="correct" type="text" class="response"></td>
 				</tr>
 				<tr>
-					<td align="left">Respuesta incorrecta* <input id="incorrect2" type="text" class="response"></td>
+					<td align="left">Respuesta incorrecta*: <input id="incorrect1" type="text" class="response"></td>
 				</tr>
 				<tr>
-					<td align="left">Respuesta incorrecta* <input id="incorrect3" type="text" class="response"></td>
+					<td align="left">Respuesta incorrecta*: <input id="incorrect2" type="text" class="response"></td>
 				</tr>
 				<tr>
-					<td align="left">Respuesta incorrecta* <input id="incorrect4" type="text" class="response"></td>
+					<td align="left">Respuesta incorrecta*: <input id="incorrect3" type="text" class="response"></td>
+				</tr>
+
+				<tr>
+					<td align="left">Complejidad (0-5)*: <input id="complexity" type="text"></td>
 				</tr>
 				<tr>
-					<td align="left">Complejidad (0-5)* <input id="complexity" type="text"></td>
-				</tr>
-				<tr>
-					<td align="left">Tema (subject)* <input id="subject" type="text"></td>
+					<td align="left">Tema (subject)*: <input id="subject" type="text"></td>
 				</tr>
                 <tr>
                     <td align="left"><button id="examine" >Examinar...</button> No se ha seleccionado ningún archivo </td>
@@ -66,16 +67,64 @@
 
 			</fieldset>
 		</form>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script>
+            function validateForm() {
+                var emailReg = new RegExp(/^[a-z]+[0-9]{3}@ikasle\.ehu\.eus$/u);
+                var complexityReg = new RegExp(/^[0-5]$/u)
+				var questionReg = new RegExp(/^.{10,}$/u)
+                var emailText = $('#email').val();
+                var complexityText = $('#complexity').val();
+                var questionText = $('#question').val();
+                var correctText = $('#correct').val();
+                var incorrect1Text = $('#incorrect1').val();
+                var incorrect2Text = $('#incorrect2').val();
+                var incorrect3Text = $('#incorrect3').val();
+                var subjectText = $('#subject').val();
+
+
+
+
+                if (!emailReg.test(emailText)) {
+                    alert('error de correo');
+                    return false;
+                }
+                if (!complexityReg.test(complexityText)) {
+                    alert('error complejidad');
+                    return false;
+                }
+                if (!questionReg.test(questionText)) {
+                    alert('error pregunta');
+                    return false;
+                }
+
+                if (correctText==null||correctText=='') {
+                    alert('error correcto vacio');
+                    return false;
+                }
+
+                if (incorrect1Text==null||incorrect1Text=='') {
+                    alert('error i1 vacio');
+                    return false;
+                }
+                if (incorrect2Text==null||incorrect2Text=='') {
+                    alert('error i2 vacio');
+                    return false;
+                }
+                if (incorrect3Text==null||incorrect3Text=='') {
+                    alert('error i3 vacio');
+                    return false;
+                }
+                if (subjectText==null||subjectText=='') {
+                    alert('error sub vacio');
+                    return false;
+                }
+                return true;
+            }
+		</script>
 	</div>
     </section>
-	  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	  <script>
-          import regexp from 'formvalidation/validators/regexp';
-		  function validateForm(){
-              var re = new RegExp("\\w+");
-              re.validate()
-          }
-	  </script>-->
+
 
 	  <footer class='main' id='f1'>
 		<a href='https://github.com'>Link GITHUB</a>
