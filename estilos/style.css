@@ -14,5 +14,6 @@ nav span             				{ margin: 0px 10px 0px 0px;
 						display: inline-block;}
 
 .response {width: 500px}
+.emailComplexSubj {width: 250px}
 
 #ErrorMsgs          		 { color: #f61; font-size: smaler}
