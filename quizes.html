@@ -29,7 +29,7 @@
     <section class="main" id="s1">
     
 	<div>
-		<form  id='questionForm' name='questionForm' onsubmit="validateForm()" action="prueba.php" >
+		<form  id='questionForm' name='questionForm' onsubmit="return validateForm()" action="prueba.php" >
 			<table>
 				<tr>
 					<td align="left">Email*<input id="email" type="text"></td>
@@ -86,37 +86,37 @@
 
 
                 if (!emailReg.test(emailText)) {
-                    alert('error de correo');
-                    return false;
-                }
-                if (!complexityReg.test(complexityText)) {
-                    alert('error complejidad');
+                    alert('Correo inválido.');
                     return false;
                 }
                 if (!questionReg.test(questionText)) {
-                    alert('error pregunta');
+                    alert('El enunciado de la pregunta no es lo suficientemente largo. (Mínimo 10 carácteres)');
                     return false;
                 }
 
                 if (correctText==null||correctText=='') {
-                    alert('error correcto vacio');
+                    alert('Introduce una respuesta correcta.');
                     return false;
                 }
 
                 if (incorrect1Text==null||incorrect1Text=='') {
-                    alert('error i1 vacio');
+                    alert('Introduce la primera respuesta incorrecta.');
                     return false;
                 }
                 if (incorrect2Text==null||incorrect2Text=='') {
-                    alert('error i2 vacio');
+                    alert('Introduce la segunda respuesta incorrecta.');
                     return false;
                 }
                 if (incorrect3Text==null||incorrect3Text=='') {
-                    alert('error i3 vacio');
+                    alert('Introduce la tercera respuesta incorrecta.');
+                    return false;
+                }
+                if (!complexityReg.test(complexityText)) {
+                    alert('Introduce un número de 0 al 5.');
                     return false;
                 }
                 if (subjectText==null||subjectText=='') {
-                    alert('error sub vacio');
+                    alert('Introduce un tema.');
                     return false;
                 }
                 return true;
