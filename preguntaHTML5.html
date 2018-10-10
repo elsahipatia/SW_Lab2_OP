@@ -59,7 +59,7 @@
                     <td align="left"><input type="file" id="examine" ></td>
                 </tr>
                 <tr>
-                    <td align="left"><button id="send" type="submit">Enviar solicitud</button> </td>
+                    <td align="left"><button id="send" type="submit">Enviar solicitud</button> <button id="reset" >Borrar todo</button> </td>
                 </tr>
                 <tr>
                     <td><img id="image" width="200px" height="200px"/></td>
@@ -95,6 +95,20 @@
 
     $("#examine").change(function() {
         readURL(this);
+    });
+
+    $("#reset").click(function(){
+        $("#email").val("");
+        $("#question").val("");
+        $("#correct").val("");
+        $("#incorrect1").val("");
+        $("#incorrect2").val("");
+        $("#incorrect3").val("");
+        $("#complexity").val("");
+        $("#subject").val("");
+        $("#examine").val("");
+        $("#image").css("display","none");
+
     });
 </script>
 
