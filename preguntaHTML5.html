@@ -86,7 +86,9 @@
             var reader = new FileReader();
 
             reader.onload = function(e) {
-                $('#image').attr('src', e.target.result);
+                var image = $('#image');
+                image.attr('src', e.target.result);
+				image.css("display","inline");
             };
 
             reader.readAsDataURL(input.files[0]);
